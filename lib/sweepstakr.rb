@@ -49,7 +49,7 @@ class Sweepstakr < Sinatra::Application
       things = things.shuffle
       people = people.shuffle
 
-      people_cycle = people.cycle
+      people_cycle = cycle(people)
       things.each do |thing|
          person = people_cycle.next
          result[person] << thing
