@@ -8,30 +8,7 @@ class Sweepstakr < Sinatra::Application
 
   set :root, APP_ROOT
 
-  class Array
-    # Shuffle the array
-    def shuffle!
-      n = length
-      for i in 0...n
-        r = Kernel.rand(n-i)+i
-        self[r], self[i] = self[i], self[r]
-      end
-      self
-    end
 
-    # Return a shuffled copy of the array
-    def shuffle
-      dup.shuffle!
-    end
-    
-    def cycle(values)
-      self.each_with_index do |o, i| 
-        yield(o, values[i % values.length])
-      end
-    end   
-    
-    
-  end
 
   get '/' do
     
@@ -48,7 +25,7 @@ class Sweepstakr < Sinatra::Application
       things = things.shuffle
       people = people.shuffle
 
-      people_cycle = cycle(people)
+      people_cycle = people.cycle
       things.each do |thing|
          person = people_cycle.next
          result[person] << thing
