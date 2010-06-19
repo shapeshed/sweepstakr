@@ -4,23 +4,12 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 
-class Array
-  def shuffle!
-    size.downto(1) { |n| push delete_at(rand(n)) }
-    self
-  end
-end
-
 class Sweepstakr < Sinatra::Application
 
   set :root, APP_ROOT
 
-
-
   get '/' do
-    
-
-     
+  
     @teams = [ 'Algeria', 'England','Korea DPR','Serbia','Argentina','France','Korea Republic','Slovakia','Australia','Germany','Mexico','Slovenia','Brazil','Ghana','Netherlands','South Africa','Cameroon','Greece','New Zealand','Spain','Chile','Honduras','Nigeria','Switzerland','Côte d\'Ivoire','Italy','Paraguay','Uruguay','Denmark','Japan','Portugal','USA']
 
     @players = ['george','paul','seb','mike','shaun','vincent','alex','toby']
