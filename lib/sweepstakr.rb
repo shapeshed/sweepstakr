@@ -5,12 +5,9 @@ require 'sinatra'
 require 'haml'
 
 class Array
-  def shuffle
-    sort_by { rand }
-  end
-
-  end shuffle!
-    replace shuffle
+  def shuffle!
+    size.downto(1) { |n| push delete_at(rand(n)) }
+    self
   end
 end
 
@@ -32,8 +29,8 @@ class Sweepstakr < Sinatra::Application
       
       result = Hash.new { |h,k| h[k] = [] }
 
-      things = things.shuffle
-      people = people.shuffle
+      things = things.shuffle!
+      people = people.shuffle!
 
       people_cycle = people.cycle
       things.each do |thing|
