@@ -1,0 +1,9 @@
+%h1 Sweepstakr!
+      
+-@results.each_pair do |key, value|
+  %h3
+    =key
+    %ul
+      -value.each do |v|
+        %li
+          =v
