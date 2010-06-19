@@ -18,8 +18,8 @@ class Sweepstakr < Sinatra::Application
     def sweep_the_stake(things,people)
       result = Hash.new { |h,k| h[k] = [] }
 
-      things = things.shuffle
-      people = people.shuffle
+      things = things.sort_by { rand }
+      people = people.sort_by { rand }
 
       people_cycle = people.cycle
       things.each do |thing|
