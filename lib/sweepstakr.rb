@@ -3,6 +3,7 @@ APP_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 require 'rubygems'
 require 'sinatra'
 require 'haml'
+require 'backports'
 
 class Array
    # Shuffle the array
