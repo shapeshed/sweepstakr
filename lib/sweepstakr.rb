@@ -4,19 +4,21 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 
+class Array
+  def shuffle
+    sort_by { rand }
+  end
+
+  end shuffle!
+    replace shuffle
+  end
+end
+
 class Sweepstakr < Sinatra::Application
 
   set :root, APP_ROOT
 
-  class Array
-    def shuffle
-      sort_by { rand }
-    end
 
-    end shuffle!
-      replace shuffle
-    end
-  end
 
   get '/' do
     
